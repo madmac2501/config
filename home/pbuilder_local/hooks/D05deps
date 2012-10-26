@@ -1,0 +1,3 @@
+#!/bin/sh
+(cd /home/cmoya/pbuilder_local/debs; apt-ftparchive packages . > Packages)
+apt-get update
