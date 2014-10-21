@@ -104,6 +104,8 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias mroe='more'
 alias g='git'
+
+. /home/macabrera/tmp/libs/git/contrib/completion/git-completion.bash
 complete -o bashdefault -o default -o nospace -F _git g
 
 # enable programmable completion features (you don't need to enable
@@ -117,7 +119,7 @@ fi
 #export LD_PRELOAD=/home/mcabrera/local/libv4l-0.5.1/lib/v4l2convert.so
 
 # maven environment variables
-export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.26/
+export JAVA_HOME=/usr/lib/jvm/j2sdk1.7-oracle//
 #export M2_HOME=$HOME/local/apache-maven-2.0.10
 #export M2=$M2_HOME/bin
 
@@ -199,12 +201,8 @@ pythonver=`python -c "import sys; print sys.version[:3]"`
 #-------------------------------------------------------------
 PYTHONPATH="$local_dir/django-1.2":$PYTHONPATH
 PYTHONPATH="$local_dir/IPy-0.42/lib/python${pythonver}/site-packages":$PYTHONPATH
+PYTHONPATH="$local_dir/pyrtlsdr/lib/python${pythonver}/site-packages":$PYTHONPATH
 export PYTHONPATH
-
-#-------------------------------------------------------------
-# Flash/Alchemy environment variables
-#-------------------------------------------------------------
-#source $local_dir/alchemy-ubuntu-v0.5a/alchemy-setup
 
 #-------------------------------------------------------------
 # Development environment variables
