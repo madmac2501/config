@@ -12,3 +12,4 @@ BINDMOUNTS="/home/cmoya/pbuilder_local/debs"
 HOOKDIR="/home/cmoya/pbuilder_local/hooks"
 EXTRAPACKAGES="apt-utils"
 MIRRORSITE=http://ftp.rediris.es/debian/
+USENETWORK=yes
