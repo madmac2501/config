@@ -105,7 +105,7 @@ alias rm='rm -i'
 alias mroe='more'
 alias g='git'
 
-. /home/macabrera/tmp/libs/git/contrib/completion/git-completion.bash
+. $HOME/tmp/libs/git/contrib/completion/git-completion.bash
 complete -o bashdefault -o default -o nospace -F _git g
 
 # enable programmable completion features (you don't need to enable
