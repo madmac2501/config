@@ -63,15 +63,6 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# less colors for man pages
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
-
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -89,25 +80,21 @@ if [ -x /usr/bin/dircolors ]; then
     #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias mroe='more'
-alias g='git'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
-. $HOME/tmp/libs/git/contrib/completion/git-completion.bash
-complete -o bashdefault -o default -o nospace -F _git g
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -130,16 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 # maven environment variables
-export JAVA_HOME=/usr/lib/jvm/jdk-8-oracle-x64/
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
-
-# jboss environments variables
-#export JBOSS_HOME=/opt/jboss-4.2.2.GA
-#export PATH=$PATH:$JBOSS_HOME/bin
-
-# modelsim environment variables
-#export PATH=$HOME/modeltech/linux:$PATH
-#export LM_LICENSE_FILE=$HOME/modeltech/license.$(hostname).dat
 
 # quilt - tool to manage series of patches
 # (configured for debian packages maintenace)
@@ -154,7 +133,7 @@ export QUILT_REFRESH_ARGS="--no-timestamps --no-index -pab"
 local_dir="$HOME/local"
 
 # reset paths
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin"
+PATH="/usr/local/bin:/usr/bin:/bin:/snap/bin:/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin"
 unset CPATH
 unset LIBRARY_PATH
 unset LD_LIBRARY_PATH
