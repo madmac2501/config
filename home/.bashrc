@@ -139,6 +139,7 @@ unset LIBRARY_PATH
 unset LD_LIBRARY_PATH
 unset PKG_CONFIG_PATH
 unset GST_PLUGIN_PATH
+unset PYTHONPATH
 
 # path for local superuser bins
 PATH=`find $local_dir -maxdepth 2 -type d -regex "$local_dir/.*/sbin" -printf "%p:" 2> /dev/null`$PATH
@@ -161,6 +162,8 @@ PKG_CONFIG_PATH=`find $local_dir -maxdepth 3 -type d -regex "$local_dir/.*/lib/p
 # gstreamer environment variables
 GST_PLUGIN_PATH=`find $local_dir -maxdepth 2 -type d -regex "$local_dir/gst-\(plugins-\(base\|good\|bad\|ugly\)\|ffmpeg\).*/lib" -printf "%p:" 2> /dev/null`$GST_PLUGIN_PATH
 
+# path for local pip bin packages, view module paths with -> python3 -c 'import sys; print(sys.path)'
+PYTHONPATH=`find $local_dir -maxdepth 2 -type d -regex "$local_dir/.*\.dist-info" -exec dirname {} \; 2> /dev/null | sort -u | paste --serial --delimiter ":" 2> /dev/null`$PYTHONPATH
 
 # remove ':' suffix and make them public
 if [[ "${PATH}" != "" ]]; then
@@ -181,10 +184,15 @@ fi
 if [[ "${GST_PLUGIN_PATH}" != "" ]]; then
   export GST_PLUGIN_PATH=${GST_PLUGIN_PATH%:}
 fi
+if [[ "${PYTHONPATH}" != "" ]]; then
+  export PYTHONPATH=${PYTHONPATH%:}
+fi
 
 #-------------------------------------------------------------
 # Python local's
 #-------------------------------------------------------------
+#pip install qmk --target $HOME/local/qmk-1.1.5
+
 #pythonver=`python -c "import sys; print sys.version[:3]"`
 #PYTHONPATH="$local_dir/pyrtlsdr/lib/python${pythonver}/site-packages":$PYTHONPATH
 #export PYTHONPATH
