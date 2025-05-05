@@ -1,0 +1,1 @@
+./install --install-dir $HOME/local/aws-cli-2.24.19 --bin-dir $HOME/local/aws-cli-2.24.19/bin

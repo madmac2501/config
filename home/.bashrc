@@ -198,8 +198,16 @@ fi
 #export PYTHONPATH
 
 #-------------------------------------------------------------
+# Rust environment variables
+#-------------------------------------------------------------
+export RUSTUP_HOME="$local_dir/rustup"
+export CARGO_HOME="$local_dir/cargo"
+
+#-------------------------------------------------------------
 # Development environment variables
 #-------------------------------------------------------------
 
 #export LANG=C # dont use gettext to avoid concurrency problems
 #export MALLOC_CHECK_=2 # debug malloc calls
+
+export DOCKER_HOST=unix://$HOME/.docker/desktop/docker.sock

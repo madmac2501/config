@@ -13,10 +13,6 @@ filetype indent plugin on
 " Enable syntax highlighting
 syntax on
 
-" Set a different color scheme
-set background=dark
-colorscheme evening
-
 "------------------------------------------------------------
 " These are highly recommended options.
 
@@ -126,10 +122,6 @@ set visualbell
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
-
-nnoremap <C-H> :Hexmode<CR>
-inoremap <C-H> <Esc>:Hexmode<CR>
-vnoremap <C-H> :<C-U>Hexmode<CR>
 
 "------------------------------------------------------------
 " Hex editing http://vim.wikia.com/wiki/Improved_Hex_editing

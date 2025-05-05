@@ -1,0 +1,51 @@
+Visual Studio
+-------------
+rust-analyzer
+CodeLLDB
+Even Better TOML - publisher:"tamasfe"
+
+Local installation under a custom path
+--------------------------------------
+
+Install rustup
+```
+source .bashrc
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.85.0 -y
+```
+
+Delete appended environment variables from .bashrc and .profile
+
+
+Add target used in docker images
+```
+rustup target add x86_64-unknown-linux-musl
+```
+
+View toolchains installed
+```
+rustup toolchain list
+```
+
+Configure (and install) default toolchain
+```
+rustup default 1.85.0
+```
+
+Install zigbuild
+```
+cargo install cargo-zigbuild  --version '=0.19.8'
+```
+
+View cargo crates installed
+```
+cargo install --list
+```
+
+Install ziglang and symlink to the binary
+```
+pip install ziglang==0.11.0 --target $HOME/local/ziglang-0.11.0
+cd $HOME/local/ziglang-0.11.0
+mkdir bin
+cd bin
+ln -s ../ziglang/zig zig
+```
